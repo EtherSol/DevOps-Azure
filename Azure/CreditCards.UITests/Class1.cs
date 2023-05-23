@@ -1,6 +1,7 @@
-﻿namespace CreditCards.UITests;
+﻿namespace CreditCards.UITests{
 
-public class Class1
-{
+    public class Class1
+    {
 
-}
+    }
+};
