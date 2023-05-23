@@ -1,0 +1,79 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/iBananaPanda/Dev/DevOps/Azure/CreditCards/CreditCards.csproj": {}
+  },
+  "projects": {
+    "/Users/iBananaPanda/Dev/DevOps/Azure/CreditCards/CreditCards.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/iBananaPanda/Dev/DevOps/Azure/CreditCards/CreditCards.csproj",
+        "projectName": "CreditCards",
+        "projectPath": "/Users/iBananaPanda/Dev/DevOps/Azure/CreditCards/CreditCards.csproj",
+        "packagesPath": "/Users/iBananaPanda/.nuget/packages/",
+        "outputPath": "/Users/iBananaPanda/Dev/DevOps/Azure/CreditCards/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/iBananaPanda/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/sdk/7.0.302/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "targetAlias": "netcoreapp2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "targetAlias": "netcoreapp2.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
