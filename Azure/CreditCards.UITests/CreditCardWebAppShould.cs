@@ -19,7 +19,7 @@ namespace CreditCards.UITests
         {
             using (IWebDriver driver = new ChromeDriver())
             {
-                driver.Navigate().GoToUrl(HomeUrl);
+                // driver.Navigate().GoToUrl(HomeUrl);
 
                 DemoHelper.Pause();
 
@@ -35,11 +35,11 @@ namespace CreditCards.UITests
             using (IWebDriver driver = new ChromeDriver())
             {
 
-                driver.Navigate().GoToUrl(HomeUrl);
+                // driver.Navigate().GoToUrl(HomeUrl);
 
                 DemoHelper.Pause();
 
-                driver.Navigate().Refresh();
+                // driver.Navigate().Refresh();
 
                 Assert.Equal(HomeTitle, driver.Title);
                 Assert.Equal(HomeUrl, driver.Url);
@@ -58,6 +58,25 @@ namespace CreditCards.UITests
                 DemoHelper.Pause();
                 driver.Navigate().Back();
                 DemoHelper.Pause();
+            }
+        }
+
+        [Fact]
+        [Trait("Category", "Smoke")]
+
+        public void ReloadHomePageForward()
+        {
+            using (IWebDriver driver = new ChromeDriver())
+            {
+                driver.Navigate().GoToUrl(AboutUrl);
+                DemoHelper.Pause();
+                driver.Navigate().GoToUrl(HomeUrl);
+                DemoHelper.Pause();
+                driver.Navigate().Forward();
+                DemoHelper.Pause();
+
+                Assert.Equal(HomeTitle, driver.Title);
+                Assert.Equal(HomeUrl, driver.Url);
             }
         }
     }
