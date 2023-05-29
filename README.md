@@ -13,4 +13,4 @@
 
 - Amount of Lower Level Test Coverage
 - Total Number of features/pages
-- At least one "Smoke Test" for every page?
+- At least one "Smoke Test" for every page
