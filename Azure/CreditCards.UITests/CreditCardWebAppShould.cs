@@ -42,6 +42,7 @@ namespace CreditCards.UITests
 
                 DemoHelper.Pause();
 
+                // Tests to see if HomeTitle, HomeUrl are similar to driver's information
                 Assert.Equal(HomeTitle, driver.Title);
                 Assert.Equal(HomeUrl, driver.Url);
             }
@@ -79,19 +80,21 @@ namespace CreditCards.UITests
         [Trait("Category", "Smoke")]
         public void ReloadHomePageOnBack()
         /*
-        The variable 'driver' uses Selenium's Environment to create an automated Chrome Driver.
+        This Smoke function tests if the back reloaded page matches with the initial page. 
+        There is a GenerationToken that was created by cache and if the new generated token does 
+        not match initial generated token, the smoke test will pass. 
 
-        This Smoke function tests if variable 'HomeTitle' and 'HomeUrl'
-        matches with the 'driver' variables
+        Possible ways for the test to fail is the initial home tokenId matches the 
+        reloaded home page tokenId. This indicates that the homepage was not reloaded.
 
-        DemoHelper function has been called from /CreditCards.UITests/DemoHelper.cs to give the 
-        code reviewer a 3 second glance of the test. If not used, then the automated test will 
-        quickly test the code.
         */
         {
             using (IWebDriver driver = new ChromeDriver())
             {
                 driver.Navigate().GoToUrl(HomeUrl);
+
+                // There is a generated HTML token, generationTokenElement stores
+                // the information.
                 IWebElement generationTokenElement =
                     driver.FindElement(By.Id("GenerationToken"));
                 string initialToken = generationTokenElement.Text;
@@ -104,6 +107,8 @@ namespace CreditCards.UITests
                 Assert.Equal(HomeTitle, driver.Title);
                 Assert.Equal(HomeUrl, driver.Url);
 
+                // A new generated HTML token is generated, reloadedToken stores
+                // the information. The Assert tests if the cache information is refreshed.
                 string reloadedToken = driver.FindElement(By.Id("GenerationToken")).Text;
                 Assert.NotEqual(initialToken, reloadedToken);
             }
@@ -113,6 +118,12 @@ namespace CreditCards.UITests
         [Trait("Category", "Smoke")]
 
         public void ReloadHomePageForward()
+        /*
+        This Smoke function tests if the page can go forward. This test the homepages. 
+
+        This test can fail if the driver is unable to go forward, causing an error page.
+        The assert will check if HomeTitle and HomeUrl matches, if not, test fails to go forward.
+        */
         {
             using (IWebDriver driver = new ChromeDriver())
             {
