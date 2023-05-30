@@ -5,7 +5,15 @@ using OpenQA.Selenium.Chrome;
 
 namespace CreditCards.UITests
 {
+    /*
+    Welcome to the Test code for CreditCards.csproj ! 🌟🌟
 
+    In this file are Smoke Tests for each functions. Automated Smoke Tests are used for functions:
+    LoadApplicationPage(), ReloadHomePages(), ReloadHomePageOnBack(), ReloadHomePageForward()
+
+    Selenium is needed to run variables with IWebDriver, 
+    Xunit extension is needed for [Fact],[Traits]
+    */
     public class CreditCardWebAppShould
     {
         private const string HomeUrl = "http://localhost:5258/";
@@ -16,10 +24,21 @@ namespace CreditCards.UITests
         [Fact]
         [Trait("Category", "Smoke")]
         public void LoadApplicationPage()
+        /*
+        The variable 'driver' uses Selenium's Environment to create an automated Chrome Driver.
+
+        This Smoke function tests if variable 'HomeTitle' and 'HomeUrl'
+        matches with the 'driver' variables. The Smoke test will fail if your C# environment within
+        VSCode is not running/set up properly with .NET v2.1, Xunit, or Selenium.
+
+        DemoHelper function has been called from /CreditCards.UITests/DemoHelper.cs to give the 
+        code reviewer a 3 second glance of the test. If not used, then the automated test will 
+        quickly test the code.
+        */
         {
             using (IWebDriver driver = new ChromeDriver())
             {
-                // driver.Navigate().GoToUrl(HomeUrl);
+                driver.Navigate().GoToUrl(HomeUrl);
 
                 DemoHelper.Pause();
 
@@ -31,6 +50,16 @@ namespace CreditCards.UITests
         [Fact]
         [Trait("Category", "Smoke")]
         public void ReloadHomePage()
+        /*
+        The variable 'driver' uses Selenium's Environment to create an automated Chrome Driver.
+
+        This Smoke function tests if variable 'HomeTitle' and 'HomeUrl'
+        matches with the 'driver' variables. Test will fail if the page does not reload. If page 
+        doesn't reload, the HomeUrl and HomeTitle variable would not match with the driver. Thus,
+        causing the Assert to throw a failed test.
+
+        This test will fail, since I did not allow the driver to go to the HomeUrl.
+        */
         {
             using (IWebDriver driver = new ChromeDriver())
             {
@@ -49,6 +78,16 @@ namespace CreditCards.UITests
         [Fact]
         [Trait("Category", "Smoke")]
         public void ReloadHomePageOnBack()
+        /*
+        The variable 'driver' uses Selenium's Environment to create an automated Chrome Driver.
+
+        This Smoke function tests if variable 'HomeTitle' and 'HomeUrl'
+        matches with the 'driver' variables
+
+        DemoHelper function has been called from /CreditCards.UITests/DemoHelper.cs to give the 
+        code reviewer a 3 second glance of the test. If not used, then the automated test will 
+        quickly test the code.
+        */
         {
             using (IWebDriver driver = new ChromeDriver())
             {
