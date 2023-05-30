@@ -30,5 +30,23 @@ namespace CreditCards.UITests
 
             }
         }
+
+        [Fact]
+        public void BeInitiatedFromHomePage_EasyApplication()
+        {
+            using (IWebDriver bestDriver = new ChromeDriver())
+            {
+                bestDriver.Navigate().GoToUrl(HomeUrl);
+                DemoHelper.Pause(11000);
+
+                IWebElement applyLink = bestDriver.FindElement(By.LinkText("Easy: Apply Now!"));
+                applyLink.Click();
+
+                DemoHelper.Pause();
+
+                Assert.Equal("Credit Card Application - Credit Cards", bestDriver.Title);
+                Assert.Equal(ApplyUrl, bestDriver.Url);
+            }
+        }
     }
 }
