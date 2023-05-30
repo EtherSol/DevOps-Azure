@@ -53,11 +53,20 @@ namespace CreditCards.UITests
             using (IWebDriver driver = new ChromeDriver())
             {
                 driver.Navigate().GoToUrl(HomeUrl);
+                IWebElement generationTokenElement =
+                    driver.FindElement(By.Id("GenerationToken"));
+                string initialToken = generationTokenElement.Text;
                 DemoHelper.Pause();
                 driver.Navigate().GoToUrl(AboutUrl);
                 DemoHelper.Pause();
                 driver.Navigate().Back();
                 DemoHelper.Pause();
+
+                Assert.Equal(HomeTitle, driver.Title);
+                Assert.Equal(HomeUrl, driver.Url);
+
+                string reloadedToken = driver.FindElement(By.Id("GenerationToken")).Text;
+                Assert.NotEqual(initialToken, reloadedToken);
             }
         }
 
