@@ -16,7 +16,7 @@ DemoHelper.cs's function in Azure/CreditCards.UITests/DemoHelper.cs is called th
 
 
 
-Notes
+<h1>Notes<h1>
 
 <h3> Which Test Scenarios Should You Automate? </h3>
 
